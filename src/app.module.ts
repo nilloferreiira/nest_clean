@@ -7,6 +7,8 @@ import { AuthModule } from './auth/auth.module'
 import { AuthenticateController } from './controllers/authenticate/authenticate.controller'
 import { JwtModule } from '@nestjs/jwt'
 import { PassportModule } from '@nestjs/passport'
+import { CreateQuestionController } from './controllers/create-question/create-question.controller'
+import { FetchRecentQuestionsController } from './controllers/fetch-recent-questions/fetch-recent-questions.controller'
 
 @Module({
   imports: [
@@ -18,7 +20,12 @@ import { PassportModule } from '@nestjs/passport'
     JwtModule,
     PassportModule,
   ],
-  controllers: [CreateAccountController, AuthenticateController],
+  controllers: [
+    CreateAccountController,
+    AuthenticateController,
+    CreateQuestionController,
+    FetchRecentQuestionsController,
+  ],
   providers: [PrismaService],
 })
 export class AppModule {}
